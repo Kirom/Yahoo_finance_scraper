@@ -14,10 +14,30 @@ from selenium.webdriver.support.wait import WebDriverWait
 from urllib3.exceptions import MaxRetryError
 
 from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import EdgeChromiumDriverManager, IEDriverManager
+from webdriver_manager.opera import OperaDriverManager
+from webdriver_manager.utils import ChromeType
 
 company_names = ["PD", "ZUO", "PINS", "ZM", "PVTL", "DOCU", "CLDR", "RUN"]
 
+# For Chrome browser
 driver = webdriver.Chrome(ChromeDriverManager().install())
+
+# For Chromium browser
+# driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+
+# For FireFox browser
+# driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+
+# For Internet Explorer browser
+# driver = webdriver.Ie(IEDriverManager().install())
+
+# For Edge browser
+# driver = webdriver.Edge(EdgeChromiumDriverManager().install())
+
+# For Opera browser
+# driver = webdriver.Opera(executable_path=OperaDriverManager().install())
 
 for company_name in company_names:
     driver.get(f"https://finance.yahoo.com/quote/{company_name}")
