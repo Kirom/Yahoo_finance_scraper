@@ -1,6 +1,10 @@
 """Helper module for writing csv file with historical data."""
 import datetime
 
+import os
+
+from pathlib import Path
+
 
 class CsvWriter:
     """Csv writer class."""
@@ -71,7 +75,11 @@ class CsvWriter:
 
     def write_csv(self):
         """Write csv file."""
-        open(f"{self.company_name}.csv", "w").write(self.csv_result_string)
+        file_name = f'{self.company_name}.csv'
+        if not os.path.exists('results'):
+            os.mkdir('results')
+        with open(f"results/{file_name}", "w") as csv_file:
+            csv_file.write(self.csv_result_string)
 
     def run(self):
         """Run csv writer."""
