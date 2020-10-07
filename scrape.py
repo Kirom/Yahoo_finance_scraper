@@ -2,7 +2,6 @@
 
 import csv
 import os
-from time import time
 
 from csv_writer import CsvWriter
 
