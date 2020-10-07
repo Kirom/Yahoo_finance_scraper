@@ -3,8 +3,6 @@ import datetime
 
 import os
 
-from pathlib import Path
-
 
 class CsvWriter:
     """Csv writer class."""
